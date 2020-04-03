@@ -4,11 +4,12 @@ Local Kubernetes Hello World example with Nginx Ingress, Helm, Cert Manager, and
 ## Pre-requisites:
 
 * Ensure you have local Kubernetes running
-* Install helm `brew install kubernetes-helm && helm init --history-max 200`
 
-## Install hello world app
+![docker-for-desktop](docker-for-desktop.png)
 
-Run installer `./install.sh`
+* Install helm `brew install kubernetes-helm`
+
+* Run installer `./install.sh`
 
 ## Visit your new hello world app
 
