@@ -1,7 +1,7 @@
 # k8-local-nginx-ingress-tls
 Local Kubernetes Hello World example with Nginx Ingress, Helm, Cert Manager, and Let's Encrypt TLS
 
-## Pre-requisites:
+## Quick Start
 
 * Ensure you have local Kubernetes running
 
