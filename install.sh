@@ -3,6 +3,7 @@ echo "--- ${LINENO}"
 #brew install kubernetes-helm
 echo "--- ${LINENO}"
 #helm version
+kubectl config use-context docker-for-desktop
 echo "--- ${LINENO}"
 kubectl apply -f cert-man-crds.yml --wait
 echo "--- ${LINENO}"
