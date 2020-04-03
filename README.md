@@ -1,5 +1,8 @@
 # k8-local-nginx-ingress-tls
-Local Kubernetes Hello World example with Nginx Ingress, Helm, Cert Manager, and Let's Encrypt TLS
+
+Initialize your **Docker for Desktop**.  
+
+Local Kubernetes Hello World example with Nginx Ingress, Cert Manager, and Let's Encrypt TLS
 
 ## Quick Start
 
