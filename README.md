@@ -11,9 +11,16 @@ Local Kubernetes Hello World example with Nginx Ingress, Helm, Cert Manager, and
 
 * Run installer `./install.sh`
 
-## Visit your new hello world app
+* Open http://localhost
 
-<img src="https://cms.callbackinsanity.com/content/images/2019/06/image-51.png" />
+* Open **Advanced** and **Proceed**
+
+![proceed](proceed.png)
+
+
+* Confirm `helloworld` loading
+
+![helloworld](helloworld.png)
 
 ## For a detailed blog post on how to use, see:
 

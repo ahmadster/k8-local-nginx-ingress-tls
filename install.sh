@@ -31,6 +31,9 @@ kubectl describe ingress
 echo "--- ${LINENO}"
 kubectl describe certificate
 
+echo "--- ${LINENO}"
+echo "open http://localhost"
+
 ## Print Helm version.
 #helm version
 #
