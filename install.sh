@@ -16,14 +16,16 @@ echo "--- ${LINENO}"
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.14.1/cert-manager.yaml --validate=false --wait
 echo "--- ${LINENO}"
 kubectl apply -f staging-issuer.yml --wait
+#echo "--- ${LINENO}"
+#kubectl apply -f deployment-svc.yml --wait
 echo "--- ${LINENO}"
-kubectl apply -f deployment-svc.yml --wait
+#kubectl apply -f official-ingress-controller-nginx.yaml --wait
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/mandatory.yaml --wait
 echo "--- ${LINENO}"
-kubectl apply -f official-ingress-controller-nginx.yaml --wait
-echo "--- ${LINENO}"
-kubectl apply -f load-balancer-svc.yaml --wait
-echo "--- ${LINENO}"
-kubectl apply -f ingress.yml --wait
+#kubectl apply -f load-balancer-svc.yaml --wait
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/provider/cloud-generic.yaml --wait
+#echo "--- ${LINENO}"
+#kubectl apply -f ingress.yml --wait
 echo "--- ${LINENO}"
 kubectl apply -f staging-issuer.yml --wait
 echo "--- ${LINENO}"
