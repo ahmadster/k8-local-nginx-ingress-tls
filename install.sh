@@ -1,38 +1,30 @@
 #!/bin/zsh
 echo "--- ${LINENO}"
-#brew install kubernetes-helm
+brew install kubernetes-helm
 echo "--- ${LINENO}"
-#helm version
-kubectl config use-context docker-for-desktop
+helm version
 echo "--- ${LINENO}"
-kubectl apply -f cert-man-crds.yml --wait
+kubectl config use-context docker-desktop
+echo "--- ${LINENO}"
+kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.14.1/cert-manager.crds.yaml --wait
 echo "--- ${LINENO}"
 kubectl create namespace cert-manager
 echo "--- ${LINENO}"
-kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
+helm repo add jetstack https://charts.jetstack.io
 echo "--- ${LINENO}"
-#helm repo add jetstack https://charts.jetstack.io
+helm repo update
 echo "--- ${LINENO}"
-kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.14.1/cert-manager.yaml --validate=false --wait
+helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v0.14.1
 echo "--- ${LINENO}"
 kubectl apply -f staging-issuer.yml --wait
-#echo "--- ${LINENO}"
-#kubectl apply -f deployment-svc.yml --wait
 echo "--- ${LINENO}"
-#kubectl apply -f official-ingress-controller-nginx.yaml --wait
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/mandatory.yaml --wait
 echo "--- ${LINENO}"
-#kubectl apply -f load-balancer-svc.yaml --wait
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/provider/cloud-generic.yaml --wait
-#echo "--- ${LINENO}"
-#kubectl apply -f ingress.yml --wait
-echo "--- ${LINENO}"
-kubectl apply -f staging-issuer.yml --wait
 echo "--- ${LINENO}"
 kubectl describe ingress
 echo "--- ${LINENO}"
 kubectl describe certificate
-
 echo "--- ${LINENO}"
 echo "open http://localhost"
 
